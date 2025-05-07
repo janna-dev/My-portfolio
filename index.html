@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Art Portfolio | Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> 
+    
+    <style>
+    :root {
+        --primary-blue: #1a73e8;
+        --dark-blue: #0d47a1;
+        --light-blue: #e8f0fe;
+        --accent-blue: #4285f4;
+    }
+    
+    .hero {
+        background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 50%, var(--accent-blue) 100%);
+        color: white;
+        padding: 5rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /><path fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" d="M0,50 Q25,25 50,50 T100,50" /></svg>');
+        background-size: cover;
+        opacity: 0.5;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .hero h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        animation: fadeInDown 1s ease-out;
+       
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease-out 0.3s both;
+    }
+    
+    .btn {
+        display: inline-block;
+        background-color: white;
+        color: var(--primary-blue);
+        padding: 12px 24px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        animation: pulse 2s infinite;
+    }
+    
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        background-color: var(--light-blue);
+    }
+    
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>ArtVision</h1>
+            <p>by Janyl </p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="elements.html"><i class="fas fa-shapes"></i> Elements & Principles</a></li>
+                <li><a href="gallery.html"><i class="fas fa-palette"></i> Artwork Showcase</a></li>
+                <li><a href="favorite.html"><i class="fas fa-heart"></i> Favorite Artwork</a></li>
+                <li><a href="color.html"><i class="fas fa-fill-drip"></i> Power of Color</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Welcome to My Digital Art Portfolio</h2>
+                <p>Exploring the intersection of visual arts and web design</p>
+                <a href="gallery.html" class="btn">View Gallery</a>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="about-image">
+                <img src="award.jpg" alt="Artist portrait">
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>
+Hello! I'm Janyl Legados Santillas, a passionate artist and web design enthusiast. My journey in visual arts began during my early school years, where I developed a deep appreciation for composition, color, and storytelling through drawing and painting. Over time, this passion evolved into an interest in how visual aesthetics can shape user experiences on the web.
+
+I draw inspiration from nature, modern architecture, and minimalist design philosophies. Artists like Georgia O'Keeffe and designers such as Dieter Rams have influenced my approach to both traditional and digital media, blending emotion with structure.
+
+This portfolio represents my exploration of how traditional art principles—such as balance, contrast, rhythm, and unity—translate into digital spaces through web design. It’s a collection of works that bridge hand-crafted creativity with interactive functionality, reflecting my commitment to both beauty and usability.
+
+---
+
+Would you like to tailor this to a specific audience, like clients or design schools?
+.</p>
+                <p>This portfolio represents my exploration of how traditional art principles translate into digital spaces through web design.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/ur.shanela_" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/Shannelsanz" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@cutyyyyymoon" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Janyl Santillas. All rights reserved.</p>
+        <p>Created for GEE-RVA: Reading Visual Arts at Jose Rizal Memorial State University</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Artwork | ArtVision</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* Image sizing for this page */
+        .artwork-featured img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .artwork-featured {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .artwork-details {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .analysis {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .analysis h3 {
+            margin-top: 25px;
+            color: #555;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        
+        .analysis ul {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>ArtVision</h1>
+            <p>by Janyl</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="elements.html"><i class="fas fa-shapes"></i> Elements & Principles</a></li>
+                <li><a href="gallery.html"><i class="fas fa-palette"></i> Artwork Showcase</a></li>
+                <li><a href="favorite.html" class="active"><i class="fas fa-heart"></i> Favorite Artwork</a></li>
+                <li><a href="color.html"><i class="fas fa-fill-drip"></i> Power of Color</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="favorite-artwork">
+        <h1>My Favorite Artwork</h1>
+        
+        <div class="artwork-featured">
+            <img src="favorite-art.png" alt="The Great Wave off Kanagawa">
+            <div class="artwork-details">
+                <h2>The Great Wave off Kanagawa</h2>
+                <p class="artist">Katsushika Hokusai, c. 1830-1832</p>
+                <p class="medium">Woodblock print; ink and color on paper</p>
+            </div>
+        </div>
+        
+        <section class="analysis">
+            <h2>Artwork Analysis</h2>
+            
+            <h3>Elements of Design</h3>
+            <ul>
+                <li><strong>Line:</strong> The powerful curved lines of the wave create movement and tension.</li>
+                <li><strong>Shape:</strong> The organic shapes of the waves contrast with the geometric shape of Mount Fuji.</li>
+                <li><strong>Color:</strong> The limited color palette creates harmony, with the blue dominating the composition.</li>
+                <!-- Add more elements -->
+            </ul>
+            
+            <h3>Principles of Design</h3>
+            <ul>
+                <li><strong>Balance:</strong> The large wave on the left is balanced by Mount Fuji on the right.</li>
+                <li><strong>Contrast:</strong> The dark blue of the wave contrasts with the pale background.</li>
+                <li><strong>Movement:</strong> The wave appears to be crashing down, creating a sense of motion.</li>
+                <!-- Add more principles -->
+            </ul>
+            
+            <h3>Personal Interpretation</h3>
+            <p>This artwork speaks to me because it vividly captures the raw power and unpredictability of nature, evoking both awe and vulnerability. The way Hokusai captures the power of nature while maintaining a sense of balance is particularly inspiring to my own work in "photography", where I strive to frame dynamic natural elements with harmony and intent. The contrast between the violent wave and the serene mountain in the background represents the tension between chaos and calm in life—a reminder that even in the most turbulent moments, there is a constant, like Mount Fuji, anchoring us in stillness and perspective.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Janyl Santillas. All rights reserved.</p>
+        <p>Created for GEE-RVA: Reading Visual Arts at Jose Rizal Memorial State University</p>
+    </footer>
+</body>
+</html>

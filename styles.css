@@ -1,0 +1,296 @@
+/* Global Styles */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #1863ad;
+    --accent-color: #e74c3c;
+    --neutral-light: #ecf0f1;
+    --neutral-dark: #bdc3c7;
+    --text-color: #333;
+    --text-light: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--neutral-light);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+/* Header Styles */
+header {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.329);
+
+    
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.2rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 5s ease infinite;
+}
+
+.logo p {
+    font-size: 1rem;
+    opacity: 0.9;
+    color: var(--neutral-dark);
+    font-style: italic;
+    margin-left: 5px;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: var(--text-light); /* White text by default */
+    font-weight: 500;
+    transition: all 0.3s;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* Main Content Styles */
+main {
+    padding: 2rem;
+    min-height: 80vh;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+h1 {
+    font-size: 2.2rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--text-light);
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* About Section */
+.about {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about-text {
+    flex: 2;
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Elements & Principles Page */
+.elements-principles {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.elements, .principles {
+    margin-bottom: 3rem;
+}
+
+.element-card, .principle-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.element-card:hover, .principle-card:hover {
+    transform: translateY(-5px);
+}
+
+.element-card img, .principle-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.analysis {
+    background: var(--neutral-light);
+    padding: 1rem;
+    border-left: 4px solid var(--primary-color);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Footer Styles */
+footer {
+    background: var(--secondary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    nav ul {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .about {
+        flex-direction: column;
+    }
+    
+    .element-card, .principle-card {
+        padding: 1rem;
+    }
+}
+
+/* Add this to your existing CSS */
+nav ul li a i {
+    margin-right: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    color: var(--text-light); /* White icons by default */
+}
+
+nav ul li a:hover i {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Adjust the active state if needed */
+nav ul li a.active i {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

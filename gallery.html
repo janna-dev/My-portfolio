@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artwork Showcase | ArtVision</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #333;
+        }
+        
+        .artwork-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .artwork-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .artwork-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        .artwork-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .artwork-text h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .artwork-text p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        /* Gallery styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .artwork {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .artwork:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .artwork img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .artwork-info {
+            padding: 15px;
+            background: #fff;
+        }
+        
+        .artwork-info h3 {
+            margin: 0 0 5px 0;
+        }
+        
+        .artwork-info p {
+            margin: 0 0 10px 0;
+            color: #666;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #4a6fa5;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #3a5a8a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>ArtVision</h1>
+            <p>by Janyl </p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="elements.html"><i class="fas fa-shapes"></i> Elements & Principles</a></li>
+                <li><a href="gallery.html"><i class="fas fa-palette"></i> Artwork Showcase</a></li>
+                <li><a href="favorite.html"><i class="fas fa-heart"></i> Favorite Artwork</a></li>
+                <li><a href="color.html"><i class="fas fa-fill-drip"></i> Power of Color</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="gallery-container">
+        <h1>Artwork Showcase</h1>
+        
+        <div class="gallery-grid">
+            <!-- Artwork 1 -->
+            <div class="artwork">
+                <img src="starry-night.jpg" alt="Starry Night">
+                <div class="artwork-info">
+                    <h3>Starry Night</h3>
+                    <p>Vincent van Gogh, 1889</p>
+                    <a href="#" class="btn view-details" data-artwork="starry-night">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 2 -->
+            <div class="artwork">
+                <img src="persistence-memory.jpg" alt="The Persistence of Memory">
+                <div class="artwork-info">
+                    <h3>The Persistence of Memory</h3>
+                    <p>Salvador Dalí, 1931</p>
+                    <a href="#" class="btn view-details" data-artwork="persistence-memory">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 3 -->
+            <div class="artwork">
+                <img src="mona-lisa.jpg" alt="Mona Lisa">
+                <div class="artwork-info">
+                    <h3>Mona Lisa</h3>
+                    <p>Leonardo da Vinci, 1503-1519</p>
+                    <a href="#" class="btn view-details" data-artwork="mona-lisa">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 4 -->
+            <div class="artwork">
+                <img src="contrast-example.png" alt="The Scream">
+                <div class="artwork-info">
+                    <h3>The Scream</h3>
+                    <p>Edvard Munch, 1893</p>
+                    <a href="#" class="btn view-details" data-artwork="the-scream">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 5 -->
+            <div class="artwork">
+                <img src="girl-with-pearl-earring.webp" alt="Girl with a Pearl Earring">
+                <div class="artwork-info">
+                    <h3>Girl with a Pearl Earring</h3>
+                    <p>Johannes Vermeer, 1665</p>
+                    <a href="#" class="btn view-details" data-artwork="pearl-earring">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 6 -->
+            <div class="artwork">
+                <img src="the-kiss.webp" alt="The Kiss">
+                <div class="artwork-info">
+                    <h3>The Kiss</h3>
+                    <p>Gustav Klimt, 1907-1908</p>
+                    <a href="#" class="btn view-details" data-artwork="the-kiss">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 7 -->
+            <div class="artwork">
+                <img src="guernica.webp" alt="Guernica">
+                <div class="artwork-info">
+                    <h3>Guernica</h3>
+                    <p>Pablo Picasso, 1937</p>
+                    <a href="#" class="btn view-details" data-artwork="guernica">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 8 -->
+            <div class="artwork">
+                <img src="the-birth-of-venus.webp" alt="The Birth of Venus">
+                <div class="artwork-info">
+                    <h3>The Birth of Venus</h3>
+                    <p>Sandro Botticelli, 1485-1486</p>
+                    <a href="#" class="btn view-details" data-artwork="birth-venus">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 9 -->
+            <div class="artwork">
+                <img src="american-gothic.webp" alt="American Gothic">
+                <div class="artwork-info">
+                    <h3>American Gothic</h3>
+                    <p>Grant Wood, 1930</p>
+                    <a href="#" class="btn view-details" data-artwork="american-gothic">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 10 -->
+            <div class="artwork">
+                <img src="the-night-watch.webp" alt="The Night Watch">
+                <div class="artwork-info">
+                    <h3>The Night Watch</h3>
+                    <p>Rembrandt, 1642</p>
+                    <a href="#" class="btn view-details" data-artwork="night-watch">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 11 -->
+            <div class="artwork">
+                <img src="water-lilies.jpg" alt="Water Lilies">
+                <div class="artwork-info">
+                    <h3>Water Lilies</h3>
+                    <p>Claude Monet, 1919</p>
+                    <a href="#" class="btn view-details" data-artwork="water-lilies">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 12 -->
+            <div class="artwork">
+                <img src="the-son-of-man.webp" alt="The Son of Man">
+                <div class="artwork-info">
+                    <h3>The Son of Man</h3>
+                    <p>René Magritte, 1964</p>
+                    <a href="#" class="btn view-details" data-artwork="son-of-man">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 13 -->
+            <div class="artwork">
+                <img src="the-last-supper.webp" alt="The Last Supper">
+                <div class="artwork-info">
+                    <h3>The Last Supper</h3>
+                    <p>Leonardo da Vinci, 1495-1498</p>
+                    <a href="#" class="btn view-details" data-artwork="last-supper">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 14 -->
+            <div class="artwork">
+                <img src="whistlers-mother.webp" alt="Whistler's Mother">
+                <div class="artwork-info">
+                    <h3>Whistler's Mother</h3>
+                    <p>James McNeill Whistler, 1871</p>
+                    <a href="#" class="btn view-details" data-artwork="whistlers-mother">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Artwork 15 - Replaced Urban Reflections with The Creation of Adam -->
+            <div class="artwork">
+                <img src="creation-of-adam.webp" alt="The Creation of Adam">
+                <div class="artwork-info">
+                    <h3>The Creation of Adam</h3>
+                    <p>Michelangelo, 1512</p>
+                    <a href="#" class="btn view-details" data-artwork="creation-adam">View Details</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for artwork details -->
+    <div id="artworkModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="artwork-details">
+                <div class="artwork-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="artwork-text">
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalArtist"></p>
+                    <p id="modalDescription"></p>
+                    <p><strong>Medium:</strong> <span id="modalMedium"></span></p>
+                    <p><strong>Dimensions:</strong> <span id="modalDimensions"></span></p>
+                    <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Janyl Santillas. All rights reserved.</p>
+        <p>Created for GEE-RVA: Reading Visual Arts at Jose Rizal Memorial State University</p>
+    </footer>
+
+    <script>
+        // Get the modal
+        const modal = document.getElementById("artworkModal");
+        
+        // Get the <span> element that closes the modal
+        const span = document.getElementsByClassName("close")[0];
+        
+        // Get all view details buttons
+        const viewDetailButtons = document.querySelectorAll(".view-details");
+        
+        // When the user clicks on a view details button, open the modal
+        viewDetailButtons.forEach(button => {
+            button.addEventListener("click", function(e) {
+                e.preventDefault();
+                const artworkId = this.getAttribute("data-artwork");
+                loadArtworkDetails(artworkId);
+                modal.style.display = "block";
+            });
+        });
+        
+        // When the user clicks on <span> (x), close the modal
+        span.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.addEventListener("click", function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+        
+        // Function to load artwork details
+        function loadArtworkDetails(artworkId) {
+            // In a real application, you might fetch this data from a server
+            // For this example, we'll use a simple switch statement
+            
+            let artworkData = {};
+            
+            switch(artworkId) {
+                case "starry-night":
+                    artworkData = {
+                        title: "Starry Night",
+                        artist: "Vincent van Gogh, 1889",
+                        description: "The Starry Night is an oil on canvas painting by Dutch Post-Impressionist painter Vincent van Gogh. Painted in June 1889, it depicts the view from the east-facing window of his asylum room at Saint-Rémy-de-Provence, just before sunrise, with the addition of an idealized village.",
+                        medium: "Oil on canvas",
+                        dimensions: "73.7 cm × 92.1 cm (29 in × 36 1⁄4 in)",
+                        location: "Museum of Modern Art, New York City",
+                        image: "starry-night.jpg"
+                    };
+                    break;
+                    
+                case "persistence-memory":
+                    artworkData = {
+                        title: "The Persistence of Memory",
+                        artist: "Salvador Dalí, 1931",
+                        description: "The Persistence of Memory is a 1931 painting by artist Salvador Dalí, and is one of his most recognizable works. The well-known surrealist piece introduced the image of the soft melting pocket watch.",
+                        medium: "Oil on canvas",
+                        dimensions: "24 cm × 33 cm (9.5 in × 13 in)",
+                        location: "Museum of Modern Art, New York City",
+                        image: "persistence-memory.jpg"
+                    };
+                    break;
+                    
+                case "mona-lisa":
+                    artworkData = {
+                        title: "Mona Lisa",
+                        artist: "Leonardo da Vinci, 1503-1519",
+                        description: "The Mona Lisa is a half-length portrait painting by Italian artist Leonardo da Vinci. Considered an archetypal masterpiece of the Italian Renaissance, it has been described as 'the best known, the most visited, the most written about, the most sung about, the most parodied work of art in the world'.",
+                        medium: "Oil on poplar panel",
+                        dimensions: "77 cm × 53 cm (30 in × 21 in)",
+                        location: "Louvre Museum, Paris",
+                        image: "mona-lisa.webp"
+                    };
+                    break;
+                    
+                case "the-scream":
+                    artworkData = {
+                        title: "The Scream",
+                        artist: "Edvard Munch, 1893",
+                        description: "The Scream is the popular name given to a composition created by Norwegian Expressionist artist Edvard Munch in 1893. The agonized face in the painting has become one of the most iconic images of art, seen as symbolizing the anxiety of the human condition.",
+                        medium: "Oil, tempera, pastel and crayon on cardboard",
+                        dimensions: "91 cm × 73.5 cm (36 in × 28.9 in)",
+                        location: "National Gallery, Oslo",
+                        image: "contrast-example.png"
+                    };
+                    break;
+                    
+                case "pearl-earring":
+                    artworkData = {
+                        title: "Girl with a Pearl Earring",
+                        artist: "Johannes Vermeer, 1665",
+                        description: "Girl with a Pearl Earring is an oil painting by Dutch Golden Age painter Johannes Vermeer. It depicts a European girl wearing an exotic dress, an oriental turban, and an improbably large pearl earring.",
+                        medium: "Oil on canvas",
+                        dimensions: "44.5 cm × 39 cm (17.5 in × 15 in)",
+                        location: "Mauritshuis, The Hague",
+                        image: "girl-with-pearl-earring.webp"
+                    };
+                    break;
+                    
+                case "the-kiss":
+                    artworkData = {
+                        title: "The Kiss",
+                        artist: "Gustav Klimt, 1907-1908",
+                        description: "The Kiss is an oil-on-canvas painting with added gold leaf, silver and platinum by the Austrian Symbolist painter Gustav Klimt. It depicts a couple embracing, their bodies entwined in elaborate robes decorated in a style influenced by the contemporary Art Nouveau style and the organic forms of the earlier Arts and Crafts movement.",
+                        medium: "Oil and gold leaf on canvas",
+                        dimensions: "180 cm × 180 cm (71 in × 71 in)",
+                        location: "Belvedere, Vienna",
+                        image: "the-kiss.webp"
+                    };
+                    break;
+                    
+                case "guernica":
+                    artworkData = {
+                        title: "Guernica",
+                        artist: "Pablo Picasso, 1937",
+                        description: "Guernica is a large 1937 oil painting on canvas by Spanish artist Pablo Picasso. It is one of his best-known works, regarded by many art critics as the most moving and powerful anti-war painting in history. It is exhibited in the Museo Reina Sofía in Madrid.",
+                        medium: "Oil on canvas",
+                        dimensions: "349 cm × 776 cm (137.4 in × 305.5 in)",
+                        location: "Museo Reina Sofía, Madrid",
+                        image: "guernica.webp"
+                    };
+                    break;
+                    
+                case "birth-venus":
+                    artworkData = {
+                        title: "The Birth of Venus",
+                        artist: "Sandro Botticelli, 1485-1486",
+                        description: "The Birth of Venus depicts the goddess Venus arriving at the shore after her birth, when she had emerged from the sea fully-grown. The painting is in the Uffizi Gallery in Florence, Italy.",
+                        medium: "Tempera on canvas",
+                        dimensions: "172.5 cm × 278.9 cm (67.9 in × 109.6 in)",
+                        location: "Uffizi Gallery, Florence",
+                        image: "the-birth-of-venus.webp"
+                    };
+                    break;
+                    
+                case "american-gothic":
+                    artworkData = {
+                        title: "American Gothic",
+                        artist: "Grant Wood, 1930",
+                        description: "American Gothic is a painting by Grant Wood in the collection of the Art Institute of Chicago. It depicts a farmer standing beside a woman who has been interpreted to be either his wife or his daughter.",
+                        medium: "Oil on beaverboard",
+                        dimensions: "78 cm × 65.3 cm (30 3⁄4 in × 25 3⁄4 in)",
+                        location: "Art Institute of Chicago",
+                        image: "american-gothic.webp"
+                    };
+                    break;
+                    
+                case "night-watch":
+                    artworkData = {
+                        title: "The Night Watch",
+                        artist: "Rembrandt, 1642",
+                        description: "The Night Watch is a 1642 painting by Rembrandt van Rijn. It is in the collection of the Amsterdam Museum but is prominently displayed in the Rijksmuseum as the best-known painting in its collection.",
+                        medium: "Oil on canvas",
+                        dimensions: "363 cm × 437 cm (142.9 in × 172.0 in)",
+                        location: "Rijksmuseum, Amsterdam",
+                        image: "the-night-watch.webp"
+                    };
+                    break;
+                    
+                case "water-lilies":
+                    artworkData = {
+                        title: "Water Lilies",
+                        artist: "Claude Monet, 1919",
+                        description: "Water Lilies is a series of approximately 250 oil paintings by French Impressionist Claude Monet. The paintings depict his flower garden at his home in Giverny, and were the main focus of his artistic production during the last thirty years of his life.",
+                        medium: "Oil on canvas",
+                        dimensions: "Various sizes (this version: 200 cm × 200 cm)",
+                        location: "Various museums (this version: Musée de l'Orangerie, Paris)",
+                        image: "water-lilies.jpg"
+                    };
+                    break;
+                    
+                case "son-of-man":
+                    artworkData = {
+                        title: "The Son of Man",
+                        artist: "René Magritte, 1964",
+                        description: "The Son of Man is a 1964 painting by the Belgian surrealist painter René Magritte. It depicts a man in a suit and bowler hat standing in front of a low wall, beyond which is the sea and a cloudy sky. The man's face is largely obscured by a hovering green apple.",
+                        medium: "Oil on canvas",
+                        dimensions: "116 cm × 89 cm (46 in × 35 in)",
+                        location: "Private collection",
+                        image: "the-son-of-man.webp"
+                    };
+                    break;
+                    
+                case "last-supper":
+                    artworkData = {
+                        title: "The Last Supper",
+                        artist: "Leonardo da Vinci, 1495-1498",
+                        description: "The Last Supper is a late 15th-century mural painting by Leonardo da Vinci housed by the refectory of the Convent of Santa Maria delle Grazie in Milan. It represents the scene of the Last Supper of Jesus with his apostles.",
+                        medium: "Tempera on gesso, pitch and mastic",
+                        dimensions: "460 cm × 880 cm (180 in × 350 in)",
+                        location: "Santa Maria delle Grazie, Milan",
+                        image: "the-last-supper.webp"
+                    };
+                    break;
+                    
+                case "whistlers-mother":
+                    artworkData = {
+                        title: "Whistler's Mother",
+                        artist: "James McNeill Whistler, 1871",
+                        description: "Arrangement in Grey and Black No. 1, best known under its colloquial name Whistler's Mother, is a painting in oils on canvas created by the American-born painter James McNeill Whistler in 1871.",
+                        medium: "Oil on canvas",
+                        dimensions: "144.3 cm × 162.4 cm (56.8 in × 63.9 in)",
+                        location: "Musée d'Orsay, Paris",
+                        image: "whistlers-mother.webp"
+                    };
+                    break;
+                    
+                case "creation-adam":
+                    artworkData = {
+                        title: "The Creation of Adam",
+                        artist: "Michelangelo, 1512",
+                        description: "The Creation of Adam is a fresco painting by Italian artist Michelangelo, which forms part of the Sistine Chapel's ceiling, painted c. 1508–1512. It illustrates the Biblical creation narrative from the Book of Genesis in which God gives life to Adam, the first man.",
+                        medium: "Fresco",
+                        dimensions: "280 cm × 570 cm (9 ft 2 in × 18 ft 8 in)",
+                        location: "Sistine Chapel, Vatican City",
+                        image: "creation-of-adam.webp"
+                    };
+                    break;
+                    
+                default:
+                    artworkData = {
+                        title: "Artwork",
+                        artist: "Unknown Artist",
+                        description: "No description available.",
+                        medium: "Unknown",
+                        dimensions: "Unknown",
+                        location: "Unknown",
+                        image: ""
+                    };
+            }
+            
+            // Update modal content
+            document.getElementById("modalTitle").textContent = artworkData.title;
+            document.getElementById("modalArtist").textContent = artworkData.artist;
+            document.getElementById("modalDescription").textContent = artworkData.description;
+            document.getElementById("modalMedium").textContent = artworkData.medium;
+            document.getElementById("modalDimensions").textContent = artworkData.dimensions;
+            document.getElementById("modalLocation").textContent = artworkData.location;
+            document.getElementById("modalImage").src = artworkData.image;
+            document.getElementById("modalImage").alt = artworkData.title;
+        }
+    </script>
+</body>
+</html>
